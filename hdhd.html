@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Email Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <svg class="shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <h1>Fake Email Detector</h1>
+            </div>
+            <p>Analyze emails for phishing and fraud indicators</p>
+        </div>
+
+        <div class="form-container">
+            <form id="emailForm">
+                <div class="form-group">
+                    <label for="sender">Sender Email Address</label>
+                    <input type="email" id="sender" placeholder="suspicious@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Email Subject</label>
+                    <input type="text" id="subject" placeholder="Urgent: Verify your account now!">
+                </div>
+
+                <div class="form-group">
+                    <label for="body">Email Body</label>
+                    <textarea id="body" placeholder="Enter the email content here..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="links">Links in Email (optional)</label>
+                    <input type="text" id="links" placeholder="https://suspicious-link.com">
+                </div>
+
+                <button type="submit" class="analyze-btn" id="analyzeBtn">
+                    <span class="btn-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>Analyze Email</span>
+                    </span>
+                </button>
+            </form>
+
+            <div class="result-container" id="resultContainer">
+                <div class="verdict-card" id="verdictCard">
+                    <div class="verdict-header">
+                        <svg class="verdict-icon" id="verdictIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <div class="verdict-content">
+                            <h3 id="verdictMessage">This email appears to be legitimate</h3>
+                            <div class="score-container">
+                                <span class="score-label">Trust Score:</span>
+                                <div class="score-bar">
+                                    <div class="score-fill" id="scoreFill" style="width: 0%"></div>
+                                </div>
+                                <span class="score-value" id="scoreValue">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="indicators-card">
+                    <h4>Analysis Details:</h4>
+                    <ul class="indicator-list" id="indicatorList"></ul>
+                </div>
+
+                <div class="tip-card">
+                    <p><strong>Tip:</strong> Always verify sender addresses, hover over links before clicking, and never share sensitive information via email.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
